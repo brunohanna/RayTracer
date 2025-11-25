@@ -57,12 +57,12 @@ public class Main {
             }
 
             // Écriture du fichier PNG (diff.png)
-            ImageIO.write(diff, "png", new File("diff.png"));
+            ImageIO.write(diff, "png", new File("./images/diff.png"));
 
-            System.out.println("Image différentielle générée : diff.png");
+            System.out.println("Image différentielle générée dans le dossier images : diff.png");
 
         } catch (Exception e) {
-            System.out.println("Erreur inattendue : " + e.getMessage());
+            System.out.println("Erreur : " + e.getMessage());
         }
     }
 }
