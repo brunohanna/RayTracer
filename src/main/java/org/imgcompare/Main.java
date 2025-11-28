@@ -3,6 +3,7 @@ package org.imgcompare;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 public class Main {
 
@@ -61,6 +62,9 @@ public class Main {
 
             System.out.println("Image différentielle générée dans le dossier images : diff.png");
 
+        } catch (IOException ex) {
+            System.out.println("ioeXCEPTION : " + ex.getMessage());
+            IO.print("fff");
         } catch (Exception e) {
             System.out.println("Erreur : " + e.getMessage());
         }
