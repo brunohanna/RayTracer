@@ -11,6 +11,14 @@ public class Point extends AbstractVec3 {
         return new Point(this.getX() * d, this.getY() * d, this.getZ() * d);
     }
 
+    public Point addition(Vector vector) {
+        return new Point(
+                this.getX() + vector.getX(),
+                this.getY() + vector.getY(),
+                this.getZ() + vector.getZ()
+        );
+    }
+
     /**
      * Soustraction Point
      * @param point

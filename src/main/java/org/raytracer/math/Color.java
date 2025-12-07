@@ -3,6 +3,11 @@ import org.jetbrains.annotations.NotNull;
 
 public class Color extends AbstractVec3 {
 
+    public Color() {
+        double val1 = 0.0, val2 = 0.0, val3 = 0.0;
+        super(val1, val2, val3);
+    }
+
     public Color(double val1, double val2, double val3) {
         // Valeur comprise entre 0 et 1
         val1 = Double.min(1, val1);

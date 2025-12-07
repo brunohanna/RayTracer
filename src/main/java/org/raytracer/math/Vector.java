@@ -36,6 +36,13 @@ public class Vector extends AbstractVec3 {
                 this.getZ() + vector.getZ()
         );
     }
+    public Point addition(@NotNull Point point) {
+        return new Point(
+                this.getX() + point.getX(),
+                this.getY() + point.getY(),
+                this.getZ() + point.getZ()
+        );
+    }
 
     /**
      * Produit Scolaire
@@ -77,5 +84,7 @@ public class Vector extends AbstractVec3 {
      * Normalisation d'un vecteur
      * @return (x1,y1,z1) = sqrt(x1,y1,z1)
      */
-
+    public Vector normalisation() {
+        return this.multiplier(1 / this.longueur());
+    }
 }
