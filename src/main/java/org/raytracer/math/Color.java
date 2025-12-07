@@ -1,4 +1,5 @@
 package org.raytracer.math;
+import org.jetbrains.annotations.NotNull;
 
 public class Color extends AbstractVec3 {
 
@@ -16,14 +17,45 @@ public class Color extends AbstractVec3 {
         super(val1, val2, val3);
     }
 
-    public void additionner(Color color) {
-        this.setX(this.getX() + color.getX());
-        this.setY(this.getY() + color.getY());
-        this.setZ(this.getZ() + color.getZ());
+    @Override
+    public Color multiplier(double d) {
+        return new Color(
+                Math.min(1,this.getX() * d),
+                Math.min(1,this.getY() * d),
+                Math.min(1,this.getZ() * d)
+        );
     }
 
-    public void schur(Color color) {}
+    /**
+     * Addition de deux couleurs
+     * @param color (la couleur à additionner)
+     * return (r1, g1, b1) + (r2, g2, b2) = (r1+r2, g1+g2, b1+b2)
+     */
+    public Color addition(@NotNull Color color) {
+        return new Color(
+            this.getX() + color.getX(),
+            this.getY() + color.getY(),
+            this.getZ() + color.getZ()
+        );
+    }
 
+    /**
+     * Produit de Schur de deux couleurs
+     * @param color
+     * return (r1, g1, b1) * (r2, g2, b2) = (r1*r2, g1*g2, b1*b2)
+     */
+    public Color schur(@NotNull Color color) {
+        return new Color(
+                this.getX() * color.getX(),
+                this.getY() * color.getY(),
+                this.getZ() * color.getZ()
+        );
+    }
+
+    /**
+     * Conversion Color 0-1 à 0-255
+     * @return (0xr*255, 0xg*255, 0xb*255)
+     */
     public int toRGB(){
         int red = (int) Math.round(this.getX() * 255);
         int green = (int) Math.round(this.getY() * 255);

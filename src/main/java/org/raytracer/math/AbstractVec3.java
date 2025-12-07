@@ -37,9 +37,17 @@ public abstract class AbstractVec3 {
      * @param d (le scalaire)
      * @return d*(x, y, z) = (d*x, d*y, d*z)
      */
-    public void multiplier(double d){
-        this.x *= d;
-        this.y *= d;
-        this.z *= d;
+    public abstract AbstractVec3 multiplier(double d);
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || this.getClass() != obj.getClass()) return false;
+
+        AbstractVec3 other = (AbstractVec3) obj;
+        return (
+                Double.compare(this.x, other.x) == 0 &&
+                Double.compare(this.y, other.y) == 0 &&
+                Double.compare(this.z, other.z) == 0
+        );
     }
 }
