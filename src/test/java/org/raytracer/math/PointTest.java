@@ -62,7 +62,6 @@ class PointTest {
         assertEquals(1.0, res.getY(), EPS);
         assertEquals(5.0, res.getZ(), EPS);
 
-        // Vérifie que le point initial n'a PAS changé
         assertEquals(1.0, p.getX(), EPS);
         assertEquals(2.0, p.getY(), EPS);
         assertEquals(3.0, p.getZ(), EPS);
